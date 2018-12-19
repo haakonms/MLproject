@@ -7,11 +7,11 @@ installation instructions if additional libraries are used - the same way as if 
 a new teammate to start working with your code.
 
 ## Libraries
-Markup : * Keras 
-              * Used for fitting and predicting using convolutional neural networks.    
-              * Based on TensorFlow
-              * First install TensorFlow using "$pip install tensorflow"
-              * Then install  Keras using "$pip install keras"
+* Keras 
+    * Used for fitting and predicting using convolutional neural networks.    
+    * Based on TensorFlow
+    * First install TensorFlow using "$pip install tensorflow"
+    * Then install  Keras using "$pip install keras"
 
 
 ## How to run
