@@ -1,14 +1,6 @@
-"""
-Baseline for machine learning project on road segmentation.
-This simple baseline consits of a CNN with two convolutional+pooling layers with a soft-max loss
-
-Credits: Aurelien Lucchi, ETH Zürich
-"""
-
 import matplotlib.image as mpimg
 import numpy as np
 import matplotlib.pyplot as plt
-import helpers as h
 import os,sys
 from PIL import Image
 import random 
@@ -17,10 +9,7 @@ from keras import backend as K
 
 # Helper functions
 
-def load_image(infilename):
-    data = mpimg.imread(infilename)
-    return data
-
+ 
 def img_float_to_uint8(img):
     rimg = img - np.min(img)
     rimg = (rimg / np.max(rimg) * 255).round().astype(np.uint8)
@@ -43,13 +32,6 @@ def concatenate_images(img, gt_img):
         cimg = np.concatenate((img8, gt_img_3c), axis=1)
     return cimg
 
-
-# Extract 6-dimensional features consisting of average RGB color as well as variance
-def extract_features(img):
-    feat_m = np.mean(img, axis=(0,1))
-    feat_v = np.var(img, axis=(0,1))
-    feat = np.append(feat_m, feat_v)
-    return feat
 
 # Extract 2-dimensional features consisting of average gray color as well as variance
 def extract_features_2d(img):
@@ -74,21 +56,6 @@ def value_to_class(v, foreground_threshold):
     else:
         return 0
     
-def split_data(x, y, ratio, seed=1):
-    assert(len(x)==len(y))
-    lists = list(zip(x, y))
-    random.shuffle(lists)  
-    x, y = zip(*lists)
-    #select a cutting point based on ratio
-    cut = int(round(len(x)*ratio))
-    x_test = x[cut:]
-    x_train = x[:cut]
-    y_test = y[cut:]
-    y_train = y[:cut]    
-    return x_train, x_test, y_train, y_test
-
-
-
 # Convert array of labels to an image
 
 def label_to_img(imgwidth, imgheight, w, h, labels):
@@ -112,24 +79,27 @@ def make_img_overlay(img, predicted_img):
     new_img = Image.blend(background, overlay, 0.2)
     return new_img
 
-def scores(pred,truth):
-    pred = np.nonzero(pred)[0]
-    truth = np.nonzero(truth)[0]
-    TP = len(list(set(truth) & set(pred)))
-    FP = len(pred)-TP
-    FN = len(truth)-TP
-    Precision = TP / (TP+FP+K.epsilon())
-    Recall = TP / (TP+FN+K.epsilon())
-    F1 = 2*Recall*Precision/(Recall+Precision+K.epsilon())
-    return F1, Precision, Recall
+#crop images into patches
+def img_crop(im, w, h):
+    list_patches = []
+    imgwidth = im.shape[0]
+    imgheight = im.shape[1]
+    is_2d = len(im.shape) < 3
+    for i in range(0,imgheight,h):
+        for j in range(0,imgwidth,w):
+            if is_2d:
+                im_patch = im[j:j+w, i:i+h]
+            else:
+                im_patch = im[j:j+w, i:i+h, :]
+            list_patches.append(im_patch)
+    return list_patches
 
-def load_train_images(n,directory):
-    image_dir = directory+ "images/"
-    files = os.listdir(image_dir)
-    n = min(n, len(files)) # Load maximum 100 images
-    print("Loading " + str(n) + " images")
-    imgs = [load_image(image_dir + files[i]) for i in range(n)]
-    gt_dir = directory + "groundtruth/"
-    print("Loading " + str(n) + " ground truth images")
-    gt_imgs = [load_image(gt_dir + files[i]) for i in range(n)]
-    return imgs, gt_imgs
+def make_patches(imgs, w, h):
+    # Extract patches from input images
+    img_patches = [img_crop(imgs[i], w, h,) for i in range(len(imgs))]
+    # Linearize list of patches
+    #shape is 10*625 (10 images, cut up into 625 images with 16*16)
+    img_patches=np.asarray([img_patches[i][j] for i in range(len(img_patches)) for j in range(len(img_patches[i]))])    
+    return img_patches
+
+
