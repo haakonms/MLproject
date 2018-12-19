@@ -7,11 +7,12 @@ installation instructions if additional libraries are used - the same way as if 
 a new teammate to start working with your code.
 
 ## Libraries
-Markdown: * Keras 
-            * Used for fitting and predicting using convolutional neural networks.    
-            * Based on TensorFlow
-            * First install TensorFlow using "$pip install tensorflow"
-            * Then install  Keras using "$pip install keras"
+Markup : * Keras 
+              * Used for fitting and predicting using convolutional neural networks.    
+              * Based on TensorFlow
+              * First install TensorFlow using "$pip install tensorflow"
+              * Then install  Keras using "$pip install keras"
+
 
 ## How to run
 * The file used to replicate the prediction of our best F1-score download the file "weights.hdf5" *HERE ADD LINK*. The size of the weights are approx. 300MB so it might take some time.
