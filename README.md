@@ -3,10 +3,7 @@ Second project of CS 433 Machine Learning.
 
 Our final best F1-score was 0.885, Username: kjoerda, ScoreID: XXXXX
 
-This includes
-a clear ReadMe le explaining how to reproduce your setup, including precise training, prediction and
-installation instructions if additional libraries are used - the same way as if you would ideally instruct
-a new teammate to start working with your code.
+This ReadMe explains in detail which libraries that is needed to run 
 
 ## Libraries
 * Keras 
@@ -20,11 +17,10 @@ Be sure to have pip3 installed as well. If running Python 2.7.9+ or 3.4+ you hav
 ## How to run
 * The file used to replicate the prediction of our best F1-score download the file ["weights.hdf5](https://drive.google.com/open?id=1-JNxaj61NFn7zXYk_xUIwuxA5E9vl2Od). The size of the weights are approx. The weights are around 300MB so it will take some time.
 * When the file is downloaded put it in the same repository as the file run.ipynb, eventually having it in your own Google Drive. In that case, notice that you have to set the directories to either local or an own Google Drive-directory.
-* Run all cells in this jupyter notebook.
+* Run all cells in run.ipynb.
 * If wanted, predicted images can be saved by setting "save_predicted_images" to True.
 * The resulting file "predictions.csv" contains our predictions.
 * Google Colaboratory may be used if predicting the model takes too long time.
-
 
 
 ## How to train.
