@@ -1,7 +1,7 @@
 # Road Segmentation 
 Second project of CS 433 Machine Learning.
 
-Our final best F1-score was 0.889, Username: kjoerda, ScoreID: XXXXX
+Our final best F1-score was 0.891, Username: Hakon, ScoreID: 25281.
 
 This ReadMe explains in detail which libraries that is needed, and how to run the files that gives the same F1-score as abovementioned as well as how to run the training files that lead to this model.
 
@@ -15,7 +15,7 @@ This ReadMe explains in detail which libraries that is needed, and how to run th
 Be sure to have pip3 installed as well. If running Python 2.7.9+ or 3.4+ you have it installed. Else you could run ```"$sudo apt-get install python-pip"```.
 
 ## How to run
-* The file used to replicate the prediction of our best F1-score download the file [weights.hdf5](https://drive.google.com/open?id=1-JNxaj61NFn7zXYk_xUIwuxA5E9vl2Od). The size of the weights are approximately 300MB so it will take some time.
+* The file used to replicate the prediction of our best F1-score download the file [weights.hdf5](https://drive.google.com/open?id=1-IdwPV2q1kpjeCTEmK8cCWHJbitM4W2F). The size of the weights are approximately 300MB so it will take some time.
 * When the file is downloaded put it in the same repository as the file run.ipynb, eventually having it in your own Google Drive. In that case, notice that you have to set the directories to either local or an own Google Drive-directory.
 * Run all cells in run.ipynb.
 * If wanted, predicted images can be saved by setting "save_predicted_images" to True.
