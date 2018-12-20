@@ -1,7 +1,7 @@
 # Road Segmentation 
 Second project of CS 433 Machine Learning.
 
-Our final best F1-score was 0.877, Username: kjoerda, ScoreID: XXXXX
+Our final best F1-score was 0.885, Username: kjoerda, ScoreID: XXXXX
 
 This includes
 a clear ReadMe le explaining how to reproduce your setup, including precise training, prediction and
@@ -19,7 +19,7 @@ Be sure to have pip3 installed as well. If running Python 2.7.9+ or 3.4+ you hav
 
 ## How to run
 * The file used to replicate the prediction of our best F1-score download the file ["weights.hdf5](https://drive.google.com/open?id=1-JNxaj61NFn7zXYk_xUIwuxA5E9vl2Od). The size of the weights are approx. The weights are around 300MB so it will take some time.
-* When the file is downloaded put it in the same repository as the file run.ipynb, eventually having it in your own Google Drive.
+* When the file is downloaded put it in the same repository as the file run.ipynb, eventually having it in your own Google Drive. In that case, notice that you have to set the directories to either local or an own Google Drive-directory.
 * Run all cells in this jupyter notebook.
 * If wanted, predicted images can be saved by setting "save_predicted_images" to True.
 * The resulting file "predictions.csv" contains our predictions.
@@ -28,7 +28,7 @@ Be sure to have pip3 installed as well. If running Python 2.7.9+ or 3.4+ you hav
 
 
 ## How to train.
-* Open train.ipynb, set paths to images to train on and select name of output. 
+* Open train.ipynb, set paths to images to train on and select name of output. Be careful about the differences in running the file locally compared to Google Drive, in having the correct directories.
 * Parameters for fitting and image augmentation can be adjusted.
 * To train the data we strongly recommend using Google CoLab or a robust GPU. 
 * The fit generator has been run with several epochs, but due to runtime errors we had to run the cell several times on repeat. 
@@ -46,4 +46,4 @@ Be sure to have pip3 installed as well. If running Python 2.7.9+ or 3.4+ you hav
 Authors: Haakon Melgaard Sveen and Haakon Skirstad Grini.
 
 ## Credits
-Many of the methods in helpers.py is written by Aurelien Lucchi, ETH Zürich,  [HERE](https://github.com/epfml/ML_course/blob/master/projects/project2/project_road_segmentation/tf_aerial_images.py). The U-Net architechture is based on Zhi Xu Hao's implementation, found [HERE](https://github.com/zhixuhao/unet).
+Many of the methods in helpers.py is written by Aurelien Lucchi, ETH Zürich, and can be found[here](https://github.com/epfml/ML_course/blob/master/projects/project2/project_road_segmentation/tf_aerial_images.py). The U-Net architechture is based on Zhi Xu Hao's [implementation](https://github.com/zhixuhao/unet).
