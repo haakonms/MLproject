@@ -18,7 +18,7 @@ a new teammate to start working with your code.
 Be sure to have pip3 installed as well. If running Python 2.7.9+ or 3.4+ you have it installed. Else you could run "$sudo apt-get install python-pip".
 
 ## How to run
-* The file used to replicate the prediction of our best F1-score download the file ["weights.hdf5"](https://drive.google.com/open?id=1-4xn3jNalba3myY4BKHee0Ri6j-vB7OZ). The size of the weights are approx. The weights are around 300MB so it will take some time.
+* The file used to replicate the prediction of our best F1-score download the file ["weights.hdf5](https://drive.google.com/open?id=1-JNxaj61NFn7zXYk_xUIwuxA5E9vl2Od). The size of the weights are approx. The weights are around 300MB so it will take some time.
 * When the file is downloaded put it in the same repository as the file run.ipynb, eventually having it in your own Google Drive.
 * Run all cells in this jupyter notebook.
 * If wanted, predicted images can be saved by setting "save_predicted_images" to True.
